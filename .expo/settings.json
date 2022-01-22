@@ -3,7 +3,7 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": null,
+  "urlRandomness": "z5-2fg",
   "https": false,
   "scheme": null,
   "devClient": false

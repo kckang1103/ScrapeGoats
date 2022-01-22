@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import {
+  Image,
   KeyboardAvoidingView,
   StyleSheet,
   View,
@@ -15,7 +16,8 @@ import {
 } from "firebase/auth";
 import * as Google from 'expo-google-app-auth';
 
-import { onSignInFacebook, onSignInGoogle } from "../util";
+import Logo from "../assets/transparentLogo.png"
+import { onSignInGoogle } from "../util";
 import { auth } from "../firebase";
 
 
@@ -100,7 +102,8 @@ const Login = () => {
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <Headline style={styles.headline}>Scrape Goats</Headline>
+      {/* <Headline style={styles.headline}>Scrape Goats</Headline> */}
+      <Image style={{width: 300, height: 250}} source={require("../assets/transparentLogo.png")}/>
       <View style={styles.inputContainer}>
         <TextInput
           label="Email"

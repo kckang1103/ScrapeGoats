@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Avatar, IconButton, Text } from 'react-native-paper';
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
+import { auth, storage } from '../firebase'
 import { Camera } from 'expo-camera';
 
 
@@ -14,15 +16,28 @@ const CameraSearch = () => {
   const cam = useRef(Camera);
 
   const takePicture = async () => {
-    console.log("pressed take")
+    console.log("pressed take blob")
     if (cam.current) {
       const options = { quality: 0.7, base4: true, skipProcessing: false };
 
       const picture = await cam.current.takePictureAsync(options);
-      
+
       if (picture.uri) {
-        console.log(picture.uri);
+
         setCurrentPicture(picture.uri);
+
+        const response = await fetch(picture.uri);
+        const blob = await response.blob();
+        const storageRef = ref(storage, 'users/' + auth.currentUser.uid + '/cameraSearch');
+
+        uploadBytes(storageRef, blob).then(() => {
+          console.log('Uploaded camera search image successfully');
+        }).then(() => {
+          const pictureRef = ref(storage, 'users/' + auth.currentUser.uid + '/profilePicture');
+          getDownloadURL(pictureRef).then((url) => {
+            console.log(url);
+          })
+        })
       }
     }
   }
@@ -45,10 +60,9 @@ const CameraSearch = () => {
   return (
     <View style={styles.container}>
       <Camera ref={cam} style={styles.camera} type={type}>
-      <Avatar.Image style={{ margin: 10, alignSelf: 'center' }} size={100} source={{ uri: currentPicture }} />
+        <Avatar.Image style={{ margin: 10, alignSelf: 'center' }} size={100} source={{ uri: currentPicture }} />
         <View style={styles.buttonContainer}>
-          <IconButton onPress={() =>
-            {takePicture()}}
+          <IconButton onPress={() => { takePicture() }}
             style={styles.pictureButton} size={60} icon="circle-slice-8"></IconButton>
           <IconButton onPress={() => {
             setType(
