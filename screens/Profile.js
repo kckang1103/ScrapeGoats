@@ -21,7 +21,7 @@ const Profile = () => {
         console.log("trying to console log current profile picture", currentProfilePicture);
         setCurrentProfilePicture(url);
         updateProfile(auth.currentUser, { photoURL: url }).then(()=> {
-          console.log('updateing photoURL 1', url);
+          console.log('updating photoURL 1', url);
         })
       })
       .catch((error) => {

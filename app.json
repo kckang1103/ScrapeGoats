@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "image-sound-encoder",
-    "slug": "image-sound-encoder",
+    "name": "scrapegoats",
+    "slug": "scrapegoats",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,7 +18,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "image-sound-encoder"
+      "bundleIdentifier": "scrapegoats"
     },
     "android": {
       "adaptiveIcon": {

@@ -13,8 +13,9 @@ import { Dimensions } from 'react-native';
 //Import screens
 import HomeScreen from '../screens/Home';
 import HistoryScreen from '../screens/History';
-import ProfileScreen from '../screens/Profile';
 import SearchScreen from '../screens/Search';
+import CameraScreen from '../screens/CameraSearch';
+import ProfileScreen from '../screens/Profile';
 
 const fullScreenWidth = Dimensions.get('window').width;
 const Tab = createBottomTabNavigator();
@@ -40,6 +41,11 @@ export default function Navigation(props) {
             <MaterialCommunityIcons name="magnify" color={color} size={size} />
           )
         }} component={SearchScreen} />
+        <Tab.Screen name="Camera Search" options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="camera" color={color} size={size} />
+          )
+        }} component={CameraScreen} />
         <Tab.Screen name="Profile" options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account-circle" color={color} size={size} />

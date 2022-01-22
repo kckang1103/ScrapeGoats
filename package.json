@@ -1,5 +1,5 @@
 {
-  "name": "image-sound-encoder",
+  "name": "scrapegoats",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -34,7 +34,8 @@
     "expo-image-picker": "~12.0.1",
     "expo-google-sign-in": "~10.1.0",
     "expo-google-app-auth": "~8.3.0",
-    "expo-facebook": "~12.1.0"
+    "expo-facebook": "~12.1.0",
+    "expo-camera": "~12.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
