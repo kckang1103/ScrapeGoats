@@ -9,8 +9,13 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+
 .idea/
 venv/
+
+# Personal txt files
+output.txt
+tokens.txt
 
 # macOS
 .DS_Store
