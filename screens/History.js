@@ -8,21 +8,16 @@ import {
 
 import { auth } from '../firebase';
 
-const Upload = () => {
-  useEffect(() => {
-    fetchSignInMethodsForEmail(auth, auth.currentUser.email).then((methods) => {
-      console.log(methods);
-    })
-  }, [])
+const History = () => {
 
   return (
     <View style={styles.container}>
-      <Headline style={styles.headline}>Upload it is</Headline>
+      <Headline style={styles.headline}>History it is</Headline>
     </View>
   )
 }
 
-export default Upload
+export default History
 
 const styles = StyleSheet.create({
   container: {
