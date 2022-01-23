@@ -26,16 +26,16 @@ export default function Navigation(props) {
   return (
     <View style={{ flex: 1 }}>
       <Tab.Navigator>
-        <Tab.Screen name="Home" options={{
+        {/* <Tab.Screen name="Home" options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           )
-        }} component={HomeScreen} />
-        <Tab.Screen name="History" options={{
+        }} component={HomeScreen} /> */}
+        {/* <Tab.Screen name="History" options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="history" color={color} size={size} />
           )
-        }} component={HistoryScreen} />
+        }} component={HistoryScreen} /> */}
         <Tab.Screen name="Search" options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="magnify" color={color} size={size} />

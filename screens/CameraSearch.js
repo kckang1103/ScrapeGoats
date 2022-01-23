@@ -20,7 +20,7 @@ const chartConfig = {
   backgroundGradientFromOpacity: 0,
   backgroundGradientTo: "#08130D",
   backgroundGradientToOpacity: 0.5,
-  color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  color: (opacity = 1) => `rgba(164, 116, 212, ${opacity})`,
   strokeWidth: 2, // optional, default 3
   barPercentage: 0.5,
   useShadowColorFromDataset: false // optional
@@ -189,7 +189,7 @@ const CameraSearch = () => {
         console.log(response.data);
 
         const data = response.data;
-        
+
         let dates = []
         let dataPoints = []
         for (let i = 0; i < data.length; i++) {
@@ -245,12 +245,12 @@ const CameraSearch = () => {
                 })}
               </List.Accordion>
             </List.Section>}
-            {graphData && <LineChart 
-              data={graphData}
-              width={screenWidth}
-              height={220}
-              chartConfig={chartConfig}
-            />}
+          {graphData && <LineChart
+            data={graphData}
+            width={screenWidth}
+            height={220}
+            chartConfig={chartConfig}
+          />}
         </>
       )}
     </ScrollView>

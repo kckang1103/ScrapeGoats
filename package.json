@@ -48,5 +48,5 @@
     "@babel/core": "^7.12.9"
   },
   "private": true,
-  "proxy": "https://scrapegoats.uc.r.appspot.com/"
+  "proxy": "https://scrapegoats.uc.r.appspot.com/api/query"
 }

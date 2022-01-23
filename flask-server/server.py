@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask import request
 from flask_cors import CORS
 
@@ -10,45 +10,51 @@ CORS(app)
 
 # API Route
 
-@app.route('/api/plot')
-def home():
-   return render_template('fig1.html')
+
 
 @app.route("/api/history")
 def members():
-  return {"history": ["history1", "history"]}
+    """
+    Retieve user's history information and send to front-end.
+    """
+    print('in history right now')
+    return json.dumps({"history": ["history1", "history"]})
+
 
 @app.route("/api/query", methods=["POST"])
 def search():
-  data = request.get_json()
-  data = data['data']
+    """
+    Retrieve tweets based on received user query and send to front-end.
+    """
 
-  queries = data.split(' ')
+    print(request.get_json())
+    # Retrieve user query from front-end
+    data = request.get_json()
+    data = data['data']
 
-  tweets = get_tweets(queries)
+    queries = data.split(' ')
 
-  for tweet in tweets: 
-    sentiment = analyze_sentiment(tweet['full_text'])
-    tweet['sentiment'] = sentiment
-  
-  tweets_slimmed = []
-  for tweet in tweets:
-    temp = {'sentiment': tweet['sentiment'],
-            'created_at': tweet['created_at'],
-            'full_text': tweet['full_text']}
-    tweets_slimmed.append(temp)
+    # Call apify to get tweets
 
-  # textfile = open("output.txt", "w")
-  # for element in tweets_slimmed:
-  #   textfile.write(element + "\n")
-  
-  # textfile.close()
+    tweets = get_tweets(queries)
+    # f = open('output.json')
+    # tweets = json.load(f)
 
-  print(tweets_slimmed)
+    # Clean and return tweet data
+    tweets_slimmed = []
+    for tweet_list in tweets:
+        for tweet in tweet_list:
+            sentiment = analyze_sentiment(tweet['full_text'])
+            tweet['sentiment'] = sentiment
+            temp = {'sentiment': tweet['sentiment'],
+                    'created_at': tweet['created_at'],
+                    'full_text': tweet['full_text']}
+            tweets_slimmed.append(temp)
 
-  json_string = json.dumps(tweets_slimmed)
+    json_string = json.dumps(tweets_slimmed)
 
-  return json_string
+    return json_string
+
 
 if __name__ == "__main__":
-  app.run(debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
