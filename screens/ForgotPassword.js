@@ -36,7 +36,7 @@ const ForgotPassword = () => {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       {/* <Headline style={styles.headline}>Scrape Goats</Headline> */}
-      <Image style={{width: 300, height: 250}} source={require("../assets/transparentLogo.png")}/>
+      <Image style={{width: 220, height: 180}} source={require("../assets/transparentLogo.png")}/>
       <View style={styles.inputContainer}>
         <Subheading>Enter your email to reset your password</Subheading>
         <TextInput

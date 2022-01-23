@@ -31,7 +31,7 @@ def search():
     queries = data.split(' ')
 
     # Call apify to get tweets
-    tweets = get_tweets(queries, intervals=40, tweets_per_interval=10)
+    tweets = get_tweets(queries, intervals=3, tweets_per_interval=4)
 
     # Clean and return tweet data
     tweets_slimmed = []

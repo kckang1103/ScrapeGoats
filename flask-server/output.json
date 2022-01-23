@@ -41,6 +41,20 @@
       "urls": [],
       "url": "https://twitter.com/jpodhoretz/status/593985358360088576",
       "created_at": "2015-05-01T03:48:39.000Z"
+    },
+    {
+      "id": "593729044799172608",
+      "conversation_id": "593729044799172608",
+      "full_text": "\"The best part of the toilet is the flush. BSSHHHWOOOOOSH!! Like a big old truck driving on down the road! Hooonk!\" - Donald Trump, 2015",
+      "reply_count": 0,
+      "retweet_count": 7,
+      "favorite_count": 37,
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "url": "https://twitter.com/egg_dog/status/593729044799172608",
+      "created_at": "2015-04-30T10:50:09.000Z"
     }
   ],
   [
@@ -73,18 +87,32 @@
       "created_at": "2018-08-31T21:04:21.000Z"
     },
     {
-      "id": "1035646474091208706",
-      "conversation_id": "1035646474091208706",
-      "full_text": "Today was the day Donald trump finally became president",
-      "reply_count": 26,
-      "retweet_count": 23,
-      "favorite_count": 612,
+      "id": "1035667662465130496",
+      "conversation_id": "1035667662465130496",
+      "full_text": "Dear Donald Trump, \n\nYou really don't have to visit Ireland in November. Really you don't. Really and truly you don't. \n\nDon't.",
+      "reply_count": 34,
+      "retweet_count": 106,
+      "favorite_count": 892,
       "hashtags": [],
       "symbols": [],
       "user_mentions": [],
       "urls": [],
-      "url": "https://twitter.com/meganamram/status/1035646474091208706",
-      "created_at": "2018-08-31T21:52:15.000Z"
+      "url": "https://twitter.com/DerekLandy/status/1035667662465130496",
+      "created_at": "2018-08-31T23:16:27.000Z"
+    },
+    {
+      "id": "1035655511931318272",
+      "conversation_id": "1035655511931318272",
+      "full_text": "I don\u2019t get the Ted Cruz/Donald Trump friendship. \n\nCall me old fashioned, but anyone who said that my father helped kill JFK and made fun of my wife and children to win an election would be on my shit list for the rest of my life.",
+      "reply_count": 339,
+      "retweet_count": 828,
+      "favorite_count": 4784,
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "url": "https://twitter.com/MrFilmkritik/status/1035655511931318272",
+      "created_at": "2018-08-31T22:28:10.000Z"
     }
   ]
 ]
