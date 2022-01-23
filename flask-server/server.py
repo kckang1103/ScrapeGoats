@@ -42,7 +42,8 @@ def search():
     for tweet in tweets:
         temp = {'sentiment': tweet['sentiment'],
                 'created_at': tweet['created_at'],
-                'full_text': tweet['full_text']}
+                'full_text': tweet['full_text'],
+                'favorite_count': tweet['favorite_count']}
         tweets_slimmed.append(temp)
 
     json_string = json.dumps(tweets_slimmed)
