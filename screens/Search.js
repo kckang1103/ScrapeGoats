@@ -22,7 +22,7 @@ const Search = () => {
     if (searchQuery != "") {
       axios.post('http://localhost:5000/api/query', params)
         .then(function (response) {
-          console.log(response.data.score, response.data.magnitude);
+          console.log(response.data);
           const result = response.data.score + " " +  response.data.magnitude;
           //Perform action based on response
           setSentiment(result);

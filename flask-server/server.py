@@ -10,41 +10,45 @@ CORS(app)
 
 # API Route
 
+
 @app.route("/api/history")
 def members():
-  return {"history": ["history1", "history"]}
+    """
+    Retieve user's history information and send to front-end.
+    """
+    return {"history": ["history1", "history"]}
+
 
 @app.route("/api/query", methods=["POST"])
 def search():
-  data = request.get_json()
-  data = data['data']
+    """
+    Retrieve tweets based on received user query and send to front-end.
+    """
+    # Retrieve user query from front-end
+    data = request.get_json()
+    data = data['data']
 
-  queries = data.split(' ')
+    queries = data.split(' ')
 
-  tweets = get_tweets(queries)
+    # Call apify to get tweets
+    tweets = get_tweets(queries)
 
-  for tweet in tweets: 
-    sentiment = analyze_sentiment(tweet['full_text'])
-    tweet['sentiment'] = sentiment
-  
-  tweets_slimmed = []
-  for tweet in tweets:
-    temp = {'sentiment': tweet['sentiment'],
-            'created_at': tweet['created_at'],
-            'full_text': tweet['full_text']}
-    tweets_slimmed.append(temp)
+    for tweet in tweets:
+        sentiment = analyze_sentiment(tweet['full_text'])
+        tweet['sentiment'] = sentiment
 
-  # textfile = open("output.txt", "w")
-  # for element in tweets_slimmed:
-  #   textfile.write(element + "\n")
-  
-  # textfile.close()
+    # Clean and return tweet data
+    tweets_slimmed = []
+    for tweet in tweets:
+        temp = {'sentiment': tweet['sentiment'],
+                'created_at': tweet['created_at'],
+                'full_text': tweet['full_text']}
+        tweets_slimmed.append(temp)
 
-  print(tweets_slimmed)
+    json_string = json.dumps(tweets_slimmed)
 
-  json_string = json.dumps(tweets_slimmed)
+    return json_string
 
-  return json_string
 
 if __name__ == "__main__":
-  app.run(debug=True)
+    app.run(debug=True)
