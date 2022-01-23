@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Headline, Text } from 'react-native-paper';
+import { Button, Headline, Text } from 'react-native-paper';
+import axios from 'axios';
+import { WebView } from 'react-native-webview';
+
 
 import {
   fetchSignInMethodsForEmail,
@@ -12,6 +15,7 @@ import { set } from 'react-native-reanimated';
 const History = () => {
 
   const [history, setHistory] = useState();
+  const [htmlContent, setHtmlContent] = useState();
 
   useEffect(() => {
     fetch("./history").then(
@@ -22,11 +26,29 @@ const History = () => {
     })
   }, [])
 
+  const onTestPressed = () => {
+    //TODO: call Twitter API on searchQuery here
+
+    //TODO: Change this later maybe
+    axios.get('https://scrapegoats.uc.r.appspot.com/api/plot')
+      .then(function (response) {
+        console.log(response);
+
+        setHtmlContent(response.data);
+        //Perform action based on response
+      })
+      .catch(function (error) {
+        console.log(error);
+        //Perform action based on error
+      });
+  }
+
+
   return (
-    <View style={styles.container}>
-      <Headline style={styles.headline}>History it is</Headline>
-      <Text>{history}</Text>
-    </View>
+      <WebView
+        originWhitelist={['*']}
+        source={{ html: htmlContent }}
+      />
   )
 }
 

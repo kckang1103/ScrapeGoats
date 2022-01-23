@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, ScrollView, Image, View } from 'react-native';
+import { Dimensions, StyleSheet, ScrollView, Image, View } from 'react-native';
 import { Avatar, Button, IconButton, List, Text } from 'react-native-paper';
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker';
+import axios from 'axios';
+import {
+  LineChart
+} from "react-native-chart-kit";
 
 import { auth, storage } from '../firebase'
 import { Camera } from 'expo-camera';
@@ -10,9 +14,23 @@ import { Camera } from 'expo-camera';
 const API_KEY = 'AIzaSyC_omoFuuCwY1Bp5F0hGrcMPxzm7cHflsk';
 const API_URL = `https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}`;
 
+const screenWidth = Dimensions.get("window").width;
+const chartConfig = {
+  backgroundGradientFrom: "#1E2923",
+  backgroundGradientFromOpacity: 0,
+  backgroundGradientTo: "#08130D",
+  backgroundGradientToOpacity: 0.5,
+  color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  strokeWidth: 2, // optional, default 3
+  barPercentage: 0.5,
+  useShadowColorFromDataset: false // optional
+};
+
 const CameraSearch = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+
+  const [graphData, setGraphData] = useState();
 
   const [currentPicture, setCurrentPicture] = useState(null);
 
@@ -166,14 +184,33 @@ const CameraSearch = () => {
     console.log('item selected: ', item)
 
     // if (searchQuery != "") {
-    //   axios.post('http://localhost:5000/api/query', params)
-    //     .then(function (response) {
-    //       console.log(response.data);
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //       //Perform action based on error
-    //     });
+    axios.post('https://scrapegoats.uc.r.appspot.com/api/query', params)
+      .then(function (response) {
+        console.log(response.data);
+
+        const data = response.data;
+        
+        let dates = []
+        let dataPoints = []
+        for (let i = 0; i < data.length; i++) {
+          dates.push(data[i]['created_at']);
+          dataPoints.push(data[i]['sentiment']['score']);
+        }
+
+        const graphDataTemp = {
+          labels: dates,
+          datasets: [
+            {
+              data: dataPoints
+            }
+          ]
+        }
+
+        setGraphData(graphDataTemp);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     // } else {
     //   alert("The search query cannot be empty")
     // }
@@ -204,10 +241,16 @@ const CameraSearch = () => {
                 expanded={expanded}
                 onPress={handlePress}>
                 {status.map((item) => {
-                  return <List.Item onPress={() => {onItemPressed(item)}} title={item} key={Math.random()} />
+                  return <List.Item onPress={() => { onItemPressed(item) }} title={item} key={Math.random()} />
                 })}
               </List.Accordion>
             </List.Section>}
+            {graphData && <LineChart 
+              data={graphData}
+              width={screenWidth}
+              height={220}
+              chartConfig={chartConfig}
+            />}
         </>
       )}
     </ScrollView>
