@@ -1,0 +1,19 @@
+{
+    "tweetsDesired": 15,
+    "addUserInfo": false,
+    "proxyConfig": {
+      "useApifyProxy": true
+    },
+    "extendOutputFunction": "async ({ data, item, page, request, customData, Apify }) => {\n  return item;\n}",
+    "extendScraperFunction": "async ({ page, request, addSearch, addProfile, _, addThread, addEvent, customData, Apify, signal, label }) => {\n \n}",
+    "handlePageTimeoutSecs": 5000,
+    "maxRequestRetries": 3,
+    "maxIdleTimeoutSecs": 30,
+    "debugLog": false,
+    "startUrls": [
+      {
+        "url": "https://twitter.com/search?q=%22bob%20ross%22%20until%3A2020-03-31%20since%3A2018-01-01%20-filter%3Alinks%20-filter%3Areplies&src=typed_query"
+      }
+    ],
+    "mode": "own"
+}

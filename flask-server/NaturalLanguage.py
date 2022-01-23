@@ -20,7 +20,7 @@ def analyze_sentiment(text):
         request={"document": document}
     ).document_sentiment
 
-    print("Text: {}".format(text))
-    print("Sentiment: {}, {}".format(sentiment.score, sentiment.magnitude))
+    #print("Text: {}".format(text))
+    #print("Sentiment: {}, {}".format(sentiment.score, sentiment.magnitude))
 
     return {"score": sentiment.score, "magnitude": sentiment.magnitude}
