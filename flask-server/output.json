@@ -1,101 +1,90 @@
 [
-  {
-    "id": "1060195904240709632",
-    "conversation_id": "1060195904240709632",
-    "full_text": "The last session on data privacy in medicine starts with Thomas Wiegand from @FraunhoferHHI who will present the results from the @ITU @WHO focus group on artificial intelligence for health. #futuremed18 #ScienceMatch",
-    "reply_count": 0,
-    "retweet_count": 0,
-    "favorite_count": 2,
-    "hashtags": [
-      "futuremed18",
-      "ScienceMatch"
-    ],
-    "symbols": [],
-    "user_mentions": [
-      {
-        "screen_name": "FraunhoferHHI",
-        "name": "Fraunhofer HHI",
-        "id_str": "321358063"
-      },
-      {
-        "screen_name": "ITU",
-        "name": "Int\u2019l Telecommunication Union",
-        "id_str": "40425262"
-      },
-      {
-        "screen_name": "WHO",
-        "name": "World Health Organization (WHO)",
-        "id_str": "14499829"
-      }
-    ],
-    "urls": [],
-    "url": "https://twitter.com/ScienceMatch/status/1060195904240709632",
-    "created_at": "2018-11-07T15:42:55.000Z"
-  },
-  {
-    "id": "1189133975299776513",
-    "conversation_id": "1189133975299776513",
-    "full_text": "The people who own the data are often not the people who would benefit the most, and those who can create interventions using this data -Prof. Dr. Thomas Wiegand @wiegand_t from @FraunhoferHHI It's a governance issue #innovation #digitalhealth #policymakers #WHS2019",
-    "reply_count": 0,
-    "retweet_count": 0,
-    "favorite_count": 0,
-    "hashtags": [
-      "innovation",
-      "digitalhealth",
-      "policymakers",
-      "WHS2019"
-    ],
-    "symbols": [],
-    "user_mentions": [
-      {
-        "screen_name": "wiegand_t",
-        "name": "Thomas Wiegand",
-        "id_str": "2868621569"
-      },
-      {
-        "screen_name": "FraunhoferHHI",
-        "name": "Fraunhofer HHI",
-        "id_str": "321358063"
-      }
-    ],
-    "urls": [],
-    "url": "https://twitter.com/ifglobalhealth/status/1189133975299776513",
-    "created_at": "2019-10-29T10:56:47.000Z"
-  },
-  {
-    "id": "1137486156776579074",
-    "conversation_id": "1137486156776579074",
-    "full_text": "\u201cI\u2019m here for a good time not a long time\u201d - Thomas Wiegand",
-    "reply_count": 0,
-    "retweet_count": 0,
-    "favorite_count": 0,
-    "hashtags": [],
-    "symbols": [],
-    "user_mentions": [],
-    "urls": [],
-    "url": "https://twitter.com/Ahmadioshino/status/1137486156776579074",
-    "created_at": "2019-06-08T22:26:47.000Z"
-  },
-  {
-    "id": "966606166670413824",
-    "conversation_id": "966606166670413824",
-    "full_text": "We\u2019ll soon begin with our first session on Information, Video, Wireless and Optical Communications. Thomas Wiegand from @FraunhoferHHI gives a brief introduction to the session. #sciencematch",
-    "reply_count": 0,
-    "retweet_count": 0,
-    "favorite_count": 1,
-    "hashtags": [
-      "sciencematch"
-    ],
-    "symbols": [],
-    "user_mentions": [
-      {
-        "screen_name": "FraunhoferHHI",
-        "name": "Fraunhofer HHI",
-        "id_str": "321358063"
-      }
-    ],
-    "urls": [],
-    "url": "https://twitter.com/ScienceMatch/status/966606166670413824",
-    "created_at": "2018-02-22T09:30:43.000Z"
-  }
+  [
+    {
+      "id": "593460982829068288",
+      "conversation_id": "593460982829068288",
+      "full_text": "\"If I decide to run, I'm the most successful person who has ever decided to run for the position as President.\" - Donald Trump",
+      "reply_count": 2,
+      "retweet_count": 5,
+      "favorite_count": 8,
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "url": "https://twitter.com/ashsuedavis/status/593460982829068288",
+      "created_at": "2015-04-29T17:04:58.000Z"
+    },
+    {
+      "id": "593421511794429952",
+      "conversation_id": "593421511794429952",
+      "full_text": "don't you wish donald trump would just fly away with the rest of his tired ass toupe",
+      "reply_count": 0,
+      "retweet_count": 1,
+      "favorite_count": 16,
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "url": "https://twitter.com/motherjohnmisty/status/593421511794429952",
+      "created_at": "2015-04-29T14:28:08.000Z"
+    },
+    {
+      "id": "593985358360088576",
+      "conversation_id": "593985358360088576",
+      "full_text": "Donald Trump will save Israel by replacing Jerusalem stone with green marble.",
+      "reply_count": 4,
+      "retweet_count": 3,
+      "favorite_count": 7,
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "url": "https://twitter.com/jpodhoretz/status/593985358360088576",
+      "created_at": "2015-05-01T03:48:39.000Z"
+    }
+  ],
+  [
+    {
+      "id": "1035583191225122817",
+      "conversation_id": "1035583191225122817",
+      "full_text": "!!!!\nProsecutors say Samuel Patten sought tickets to Donald Trump\u2019s presidential inauguration on behalf of a prominent Ukrainian oligarch. Patten acted as a \u201cstraw purchaser,\u201d funneling the Ukrainian\u2019s money secretly to the inauguration committee through a Cypriot bank account.",
+      "reply_count": 222,
+      "retweet_count": 3540,
+      "favorite_count": 7126,
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "url": "https://twitter.com/ShimonPro/status/1035583191225122817",
+      "created_at": "2018-08-31T17:40:47.000Z"
+    },
+    {
+      "id": "1035634419002945536",
+      "conversation_id": "1035634419002945536",
+      "full_text": "Do you approve of Donald Trump?",
+      "reply_count": 14,
+      "retweet_count": 103,
+      "favorite_count": 51,
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "url": "https://twitter.com/NovElection2024/status/1035634419002945536",
+      "created_at": "2018-08-31T21:04:21.000Z"
+    },
+    {
+      "id": "1035646474091208706",
+      "conversation_id": "1035646474091208706",
+      "full_text": "Today was the day Donald trump finally became president",
+      "reply_count": 26,
+      "retweet_count": 23,
+      "favorite_count": 612,
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "url": "https://twitter.com/meganamram/status/1035646474091208706",
+      "created_at": "2018-08-31T21:52:15.000Z"
+    }
+  ]
 ]

@@ -1,5 +1,8 @@
+from calendar import month
+from operator import truediv
 import requests
 import json
+import datetime
 
 
 def apify_run(bearer_token, settings_json):
@@ -16,7 +19,7 @@ def apify_run(bearer_token, settings_json):
     return response.json()
 
 
-def create_settings_json(settings_filename, query, until_date, since_date):
+def create_settings_json(settings_filename, query, until_date, since_date, tweets_per_interval):
     """
     Build a custom url based on input query terms and date range.
 
@@ -28,6 +31,7 @@ def create_settings_json(settings_filename, query, until_date, since_date):
     # Get the current url in the settings
     f = open(settings_filename)
     settings_json = json.load(f)
+    settings_json['tweetsDesired'] = tweets_per_interval
     url = settings_json['startUrls'][0]['url']
 
     # Build the components of the new url
@@ -56,25 +60,69 @@ def dump_to_file(to_dump, filename):
     f.close()
 
 
-def get_tweets(queries):
+def get_date_range(intervals):
+    """
+    Get a list of dates of size 'intervals' in between the start and end dates.
+    """
+
+    # initializing dates
+    test_date1 = datetime.datetime(2012, 1, 1)
+    test_date2 = datetime.datetime(2022, 1, 1)
+
+    # printing original dates
+    print("The original date 1 is : " + str(test_date1))
+    print("The original date 2 is : " + str(test_date2))
+
+    # initializing N
+    N = intervals
+
+    temp = []
+
+    # getting diff.
+    diff = (test_date2 - test_date1) // N
+    for idx in range(0, N):
+        # computing new dates
+        temp.append((test_date1 + idx * diff))
+
+    # using strftime to convert to userfriendly
+    # format
+    res = []
+    for sub in temp:
+        res.append(sub.strftime("%Y-%m-%d"))
+
+    return res
+
+
+def get_tweets(queries, intervals, tweets_per_interval):
     """
     Retrieves a list of tweets from apify which match the request criteria of the user.
 
     :param queries: list of input terms to narrow query scope
     :return: json with tweet information
     """
+    compiled_tweets = []
+
     bearer_token = "apify_api_AciYyFiLPv42fBJQOLbgv8fioOFnXp1AMpKh"
 
-    # Create json for actor
-    settings_json = create_settings_json(settings_filename="requestSettings.json",
-                                         query=queries,
-                                         until_date='2020-03-31',
-                                         since_date='2018-01-01')
+    date_list = get_date_range(intervals)
 
-    # Run the current actor w/new json
-    res_json = apify_run(bearer_token, settings_json)
+    print(date_list)
+
+    for i in range(len(date_list) - 1):
+        # Create settings json for actor
+        settings_json = create_settings_json(settings_filename="requestSettings.json",
+                                             query=queries,
+                                             until_date=date_list[i+1],
+                                             since_date=date_list[i],
+                                             tweets_per_interval=tweets_per_interval)
+
+        # Run the current actor w/new json
+        res_json = apify_run(bearer_token, settings_json)
+
+        # Append to the compiled tweets so far
+        compiled_tweets.append(res_json)
 
     # Dump to output for debugging purposes
-    dump_to_file(res_json, filename='output.json')
+    dump_to_file(compiled_tweets, filename='output.json')
 
-    return res_json
+    return compiled_tweets

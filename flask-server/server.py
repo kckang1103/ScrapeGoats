@@ -31,20 +31,24 @@ def search():
     queries = data.split(' ')
 
     # Call apify to get tweets
-    tweets = get_tweets(queries)
-
-    for tweet in tweets:
-        sentiment = analyze_sentiment(tweet['full_text'])
-        tweet['sentiment'] = sentiment
+    tweets = get_tweets(queries, intervals=40, tweets_per_interval=10)
 
     # Clean and return tweet data
     tweets_slimmed = []
-    for tweet in tweets:
-        temp = {'sentiment': tweet['sentiment'],
-                'created_at': tweet['created_at'],
-                'full_text': tweet['full_text']}
-        tweets_slimmed.append(temp)
+    for tweet_list in tweets:
+        for tweet in tweet_list:
+            sentiment = analyze_sentiment(tweet['full_text'])
+            tweet['sentiment'] = sentiment
+            temp = {'sentiment': tweet['sentiment'],
+                    'created_at': tweet['created_at'],
+                    'full_text': tweet['full_text']}
+            tweets_slimmed.append(temp)
 
+    print('~~~~~~~~~~~~~~~~~')
+    print()
+    print(tweets_slimmed)
+    print()
+    print('~~~~~~~~~~~~~~~~~')
     json_string = json.dumps(tweets_slimmed)
 
     return json_string
